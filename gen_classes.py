@@ -122,3 +122,41 @@ pinsfaces_list = [
     "James Beck", "Ruby Tate", "Daniel Lowe", "Ivy Knight", "Jacob Stone", 
     "Lily Hayes", "Ben Carter", "Grace Ford", "Theo Cross", "Ella Lane"
 ]
+cifar10_list = [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+]
+
+# def get_configs(args):
+#     configs = {
+#         'StanfordDogs': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+#         'StanfordCars': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+#         'Caltech101': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+#         'OxfordFlowers': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+#         'PinsFace': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+#         'CIFAR10Custom': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+#     }
+    
+#     return configs.get(args.run_ds, configs['StanfordDogs'])
+
+def get_configs(args):
+    configs = {
+        'StanfordDogs': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+        'StanfordCars': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+        'Caltech101': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+        'OxfordFlowers': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+        'PinsFace': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+        'CIFAR10Custom': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+    }
+
+    # handle both string or list
+    ds_name = args.run_ds[0] if isinstance(args.run_ds, list) else args.run_ds
+    return configs.get(ds_name, configs['StanfordDogs'])
