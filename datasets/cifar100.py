@@ -1,3 +1,8 @@
+import os
+from torchvision import datasets, transforms
+from dassl.data.datasets import DATASET_REGISTRY, Datum, DatasetBase
+from dassl.utils import mkdir_if_missing
+from PIL import Image
 @DATASET_REGISTRY.register()
 class CIFAR100Custom(DatasetBase):
     dataset_dir = "cifar100"
