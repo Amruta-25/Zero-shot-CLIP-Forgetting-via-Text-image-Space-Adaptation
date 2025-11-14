@@ -27,6 +27,7 @@ import datasets.oxford_flowers
 import datasets.oxford_pets
 import datasets.food101
 import datasets.pinsfaces
+import datasets.cifar100
 
 from dassl.data.datasets.build import DATASET_REGISTRY, build_dataset
 from dassl.data.transforms.transforms import build_transform
@@ -70,7 +71,11 @@ def set_seeds(seed):
     random.seed(seed)
     np.random.seed(seed)
 
-
+def compute_tpr(model):
+    total_params = sum(p.numel() for p in model.parameters())
+    trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    tpr = trainable_params / total_params
+    return tpr, trainable_params, total_params
 def initialize_config(args):
     cfg = get_cfg_default()
     cfg.merge_from_file(args.config_file)
@@ -319,7 +324,8 @@ if __name__ == '__main__':
                 new_text_proj = Linear(in_proj, out_proj, r=r, bias=False, device=device)
                 new_text_proj.weight =  torch.nn.Parameter(model.text_projection.T)
                 new_text_proj.weight.requires_grad = False
-                
+                tpr, trainable, total = compute_tpr(new_text_proj)
+                print(f"\n[TPR] Trainable Params: {trainable}, Total Params: {total}, TPR={tpr:.6f}\n")
                 optimizer = torch.optim.Adam(list(new_text_proj.parameters()), lr=0.01)
                 
                 with torch.no_grad():
