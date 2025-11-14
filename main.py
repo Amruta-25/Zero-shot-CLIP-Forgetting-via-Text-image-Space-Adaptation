@@ -62,7 +62,8 @@ CUSTOM_TEMPLATES = {
     "StanfordCars": ["a photo of a {}."],
     "Caltech101": ["a photo of a {}."],
     "StanfordDogs": ["a photo of a {}."],
-    "CIFAR10Custom": ["a photo of a {}."]
+    "CIFAR10Custom": ["a photo of a {}."],
+    "CIFAR100Custom": cifar100_list
 }
 
         
@@ -299,7 +300,9 @@ if __name__ == '__main__':
                 'StanfordDogs': stanforddogs_list,
                 'StanfordCars': stanfordcars_list,
                 'Caltech101': caltech_list,
+                'CIFAR10Custom': cifar10_list,
                 'CIFAR10Custom': cifar10_list
+
             })
             
             projection_additional, preserve_hooks = precompute_projections(model, classes_preserved_list)
