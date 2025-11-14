@@ -25,6 +25,18 @@ caltech_list = [
     "tenrec", "tree shrew", "wombat", "zebra finch", "zebu", "zonkey", "zorilla", "zygodont"
 ]
 
+cifar100_list = [
+    'apple','aquarium_fish','baby','bear','beaver','bed','bee','beetle','bicycle','bottle',
+    'bowl','boy','bridge','bus','butterfly','camel','can','castle','caterpillar','cattle',
+    'chair','chimpanzee','clock','cloud','cockroach','couch','crab','crocodile','cup','dinosaur',
+    'dolphin','elephant','flatfish','forest','fox','girl','hamster','house','kangaroo','keyboard',
+    'lamp','lawn_mower','leopard','lion','lizard','lobster','man','maple_tree','motorcycle','mountain',
+    'mouse','mushroom','oak_tree','orange','orchid','otter','palm_tree','pear','pickup_truck','pine_tree',
+    'plain','plate','poppy','porcupine','possum','rabbit','raccoon','ray','road','rocket',
+    'rose','sea','seal','shark','shrew','skunk','skyscraper','snail','snake','spider',
+    'squirrel','streetcar','sunflower','sweet_pepper','table','tank','telephone','television','tiger','tractor',
+    'train','trout','tulip','turtle','wardrobe','whale','willow_tree','wolf','woman','worm'
+]
 
 
 
@@ -155,6 +167,7 @@ def get_configs(args):
         'OxfordFlowers': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
         'PinsFace': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
         'CIFAR10Custom': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
+        'CIFAR100Custom': {'lamb_preserve': 0.1, 'lamb_forget': 0.5, 'lamb_weight': 0.1, 'lora_r': 8},
     }
 
     # handle both string or list
