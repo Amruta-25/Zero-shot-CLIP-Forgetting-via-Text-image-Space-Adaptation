@@ -15,7 +15,7 @@ import datasets.stanford_cars
 import datasets.stanford_dogs
 import datasets.caltech101
 import datasets.oxford_flowers
-import datasets.cifar100_custom  # or whatever module you define
+import datasets.cifar100 # or whatever module you define
 
 CUSTOM_TEMPLATES = {}
 
