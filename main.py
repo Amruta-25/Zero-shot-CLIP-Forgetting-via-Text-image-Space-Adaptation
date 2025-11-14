@@ -9,7 +9,7 @@ import torch
 import pickle
 import argparse
 
-import datasets.stanford_carsimport datasets.cifar10
+# import datasets.stanford_carsimport datasets.cifar10
 import os
 # import torch.optim as optim 
 import numpy as np
